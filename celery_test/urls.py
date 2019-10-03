@@ -16,9 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from demo.views import GenerateRandomUserView, UsersListView
+from email_example.views import send_email
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('gen/', GenerateRandomUserView.as_view(), name='generate'),
-    path('', UsersListView.as_view(), name='users_list')
+    path('users/', UsersListView.as_view(), name='users_list'),
+    path('', send_email, name='send_email'),
 ]
